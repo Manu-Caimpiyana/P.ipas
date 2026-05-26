@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Program SIKasir</title>
+    <link rel="stylesheet" href="assets/style/style.css">
+  </head>
+<body>
+
+<div class="main">
+
+    <div class="navbar">
+        <h1><span>SI</span>Kasir</h1>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Produk</h3>
+            <p id="totalProduk">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Transaksi</h3>
+            <p id="totalTransaksi">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Pendapatan</h3>
+            <p id="totalPendapatan">Rp 0</p>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- FORM PRODUK -->
+        <div class="box">
+            <h2>Produk</h2>
+
+            <input type="hidden" id="produkId">
+
+            <input type="text" id="nama" placeholder="Nama Produk">
+
+            <input type="number" id="harga" placeholder="Harga">
+
+            <input type="number" id="stok" placeholder="Stok">
+
+            <input type="text" id="kategori" placeholder="Kategori">
+
+            <button class="btn-primary" onclick="simpanProduk()">
+                Simpan Produk
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Kategori</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="produkTable"></tbody>
+            </table>
+        </div>
+
+        <!-- TRANSAKSI -->
+        <div class="box">
+            <h2>Transaksi</h2>
+
+            <select id="pilihProduk"></select>
+
+            <input type="number" id="jumlahBeli" placeholder="Jumlah Beli">
+
+            <div class="total-box">
+                Total: <span id="totalHarga">Rp 0</span>
+            </div>
+
+            <button class="btn-primary" onclick="tambahTransaksi()">
+                Simpan Transaksi
+            </button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produk</th>
+                        <th>Jumlah</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+
+                <tbody id="transaksiTable"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="assets/script/script.js"></script>
+
+</body>
+</html>
