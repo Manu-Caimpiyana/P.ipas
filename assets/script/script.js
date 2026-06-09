@@ -17,7 +17,9 @@
                 <tr>
                     <td>${item.nama}</td>
                     <td>Rp ${item.harga}</td>
-                    <td>${item.stok}</td>
+                    <td style="color: ${item.stok < 10 ? 'red' : 'inherit'}; font-weight: ${item.stok < 10 ? 'bold' : 'normal'};">
+                        ${item.stok}
+                    </td>
                     <td>${item.kategori}</td>
 
                     <td>
@@ -200,6 +202,23 @@
 
         document.getElementById("totalPendapatan")
         .innerText = "Rp " + totalPendapatan.toLocaleString();
+    }
+
+    function hapusSemuaTransaksi() {
+    // 1. Kasih konfirmasi dulu biar gak gak sengaja kepencet
+        if (confirm("Apakah Anda yakin ingin menghapus semua riwayat transaksi?")) {
+            
+            // 2. Kosongkan array transaksi
+            transaksi = [];
+
+            // 3. Update data transaksi di localStorage jadi array kosong
+            localStorage.setItem("transaksi", JSON.stringify(transaksi));
+
+            // 4. Render ulang tabel transaksi dan dashboard biar langsung berubah di layar
+            renderTransaksi();
+            
+            alert("Riwayat transaksi berhasil dibersihkan!");
+        }
     }
 
     renderProduk();
